@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mk体育 · 日常对照与延伸阅读</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f9f6f0;
+      font-family: 'Georgia', 'Times New Roman', '宋体', 'Songti SC', serif;
+      color: #2c2c2c;
+      line-height: 1.75;
+      padding: 2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page {
+      max-width: 820px;
+      width: 100%;
+      background: #fefcf8;
+      padding: 3rem 2.5rem;
+      border-radius: 28px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s;
+    }
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.5rem; }
+      .page { padding: 2rem 1.2rem; border-radius: 18px; }
+    }
+
+    /* 开场短句 */
+    .opening {
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #3b3b3b;
+      margin-bottom: 1.8rem;
+      border-left: 5px solid #bfab8e;
+      padding-left: 1.4rem;
+      font-style: italic;
+    }
+
+    /* 承接段落 */
+    .lead {
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      color: #3e3e3e;
+      text-align: justify;
+    }
+    .lead a, .body-text a {
+      color: #7d5f3e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.1s;
+    }
+    .lead a:hover, .body-text a:hover {
+      color: #a77b4a;
+    }
+
+    /* 特点列表 — 卡片式 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 2.2rem 0 2.4rem;
+    }
+    @media (max-width: 550px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+    .feature-item {
+      background: #f5f1ea;
+      padding: 1.2rem 1.4rem;
+      border-radius: 18px;
+      border-left: 6px solid #c6b39b;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+    }
+    .feature-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #4a3f32;
+      letter-spacing: 0.02em;
+    }
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #4a4a4a;
+      line-height: 1.6;
+    }
+
+    /* 引用块 / 提示框 */
+    .inset-note {
+      background: #efe9df;
+      padding: 1.4rem 2rem;
+      border-radius: 24px;
+      margin: 2.2rem 0;
+      color: #3a352e;
+      border: 1px solid #ddd6c9;
+      font-size: 0.98rem;
+      text-align: center;
+    }
+    .inset-note strong {
+      color: #5f4f38;
+      font-weight: 500;
+    }
+
+    /* 温和结尾 */
+    .closing {
+      margin-top: 2.8rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e3dcd0;
+      font-size: 0.98rem;
+      color: #5a5349;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .closing p {
+      margin: 0;
+    }
+    .closing .muted {
+      color: #8b8070;
+      font-size: 0.9rem;
+    }
+
+    /* 其他辅助 */
+    .body-text {
+      margin-top: 0.2rem;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 开场短句 -->
+    <div class="opening">
+      信息越琐碎，越需要一处可靠的对照。
+    </div>
+
+    <!-- 承接段落：日常查询与延伸阅读 -->
+    <div class="lead">
+      从赛前名单到赛后复盘，从联赛积分到历史交锋，日常查询常常散落在不同窗口和笔记之间。许多人习惯在移动端快速检索一个队名或赛季数据，随后又需要回到桌面端做更深的延伸阅读——这种来回切换，正是许多人使用 <a href="https://mkpull.com.cn">mk体育</a> 时的真实场景：先翻看当日对阵，再顺着感兴趣的对局去了解球队近况、青训动态或战术解析。页面不求花哨，但求信息结构清楚，方便随时对照。
+    </div>
+
+    <!-- 特点列表 -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>· 赛事条目</h3>
+        <p>主流联赛与杯赛的日程、比分、积分榜，按赛季归档，便于前后对照。</p>
+      </div>
+      <div class="feature-item">
+        <h3>· 队伍与球员档案</h3>
+        <p>基础数据、转会记录、近期状态，适合写分析或做笔记时快速查阅。</p>
+      </div>
+      <div class="feature-item">
+        <h3>· 纵深阅读</h3>
+        <p>赛前简报、赛后述评、专题统计，并非观点集锦，而是素材整理式的延伸。</p>
+      </div>
+      <div class="feature-item">
+        <h3>· 历史对照</h3>
+        <p>历年交锋记录、冠军列表、赛季走势，适合做长期观察或资料汇编。</p>
+      </div>
+    </div>
+
+    <!-- 提示框 / 引用块 -->
+    <div class="inset-note">
+      <strong>日常用法举例</strong><br>
+      周六晚先查看周末联赛对阵，标记几场想关注的对局；周中空闲时再回到对应页面，翻看赛后数据和球队消息 —— 查询与延伸各占一半。
+    </div>
+
+    <!-- 一段正文延续，增加承接感 -->
+    <div class="body-text">
+      这种使用习惯，促成了站内几个比较稳定的模块：赛程表按日期排列，同时附带当季的转会摘要；球队页面下方会列出近五场交手记录；部分专题还整理了同地区俱乐部的历史关联。页面整体偏向清单式的呈现，没有太多装饰，目的是减少加载等待，让查询本身更干脆。如果你也有过那种“只是想确认一个比分，结果翻了好几层菜单”的经历，或许会觉得这样的结构更顺手。
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+      <p>整理自日常的使用笔记 · 持续迭代中</p>
+      <span class="muted">mk体育 · 对照与延伸</span>
+    </div>
+  </div>
+</body>
+</html>
