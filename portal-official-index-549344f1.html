@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>麻将胡了 · 快速识别 · 用途卡片 · 信息页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f9f7f5;
+      color: #2b2b2b;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1rem 4rem;
+    }
+
+    .page {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    /* 极简留白 + 窄正文 */
+    h1, h2, h3, p, ul, .card-grid, .faq-item, .hero-tagline {
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-top: 0.25rem;
+      margin-bottom: 0.5rem;
+      color: #1e1e1e;
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: #5a5a5a;
+      margin-bottom: 2rem;
+      border-left: 3px solid #c8b69b;
+      padding-left: 1rem;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #2b2b2b;
+      margin-top: 2.8rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid #e7dfd8;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: #3f3f3f;
+    }
+
+    p {
+      color: #404040;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #2a5c6e;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+      text-decoration-color: #cbdbe3;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+    a:hover {
+      color: #1a4150;
+      text-decoration-color: #2a5c6e;
+    }
+
+    /* 主视觉卡片 (hero 卡片) */
+    .hero-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem 2rem;
+      margin: 1.5rem 0 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 6px 20px rgba(0,0,0,0.03);
+      border: 1px solid #ede8e3;
+    }
+
+    .hero-card p {
+      font-size: 1rem;
+    }
+
+    /* 用途卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 0.8rem 0 1.6rem;
+    }
+
+    .use-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.2rem 1rem 1.1rem;
+      border: 1px solid #eae3dc;
+      transition: box-shadow 0.2s;
+    }
+    .use-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .use-card h3 {
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      color: #1f1f1f;
+    }
+
+    .use-card p {
+      font-size: 0.85rem;
+      color: #5c5c5c;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    .icon-emoji {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 0.4rem;
+      color: #b39e83;
+    }
+
+    /* 适合人群列表 */
+    .audience-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      margin: 0.5rem 0 1.8rem;
+    }
+
+    .audience-list li {
+      background: #f1ede8;
+      border-radius: 30px;
+      padding: 0.15rem 1rem;
+      font-size: 0.9rem;
+      color: #3b3b3b;
+      white-space: nowrap;
+    }
+
+    /* FAQ 摘要卡片 */
+    .faq-item {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 0.9rem 1.2rem;
+      margin-bottom: 0.7rem;
+      border: 1px solid #e8e1da;
+    }
+
+    .faq-item strong {
+      font-weight: 500;
+      color: #2b2b2b;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .faq-item p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    /* 自然链接段 */
+    .link-paragraph {
+      background: #f6f2ed;
+      border-radius: 14px;
+      padding: 1rem 1.4rem;
+      margin: 1.4rem 0 1rem;
+      border-left: 4px solid #c3b1a0;
+      font-size: 0.95rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2dbd4;
+      margin: 2.5rem auto;
+      width: 80px;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #8a8886;
+      margin-top: 2.8rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.5rem 0.8rem 3rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      .hero-card {
+        padding: 1.2rem 1.2rem 1.5rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.7rem;
+      }
+      .audience-list li {
+        white-space: normal;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 主视觉卡片 -->
+  <div class="hero-card">
+    <h1>麻将胡了</h1>
+    <div class="hero-tagline">快速识别网站用途——工具型信息页面</div>
+    <p>这是一个为玩家与爱好者提供的集中式信息页，帮助你快速了解「<a href="https://portal-official-mahjong.com">麻将胡了</a>」所涵盖的玩法逻辑、规则参考以及常见术语。不依赖夸张宣传，只呈现清晰的功能框架。</p>
+    <p style="margin-bottom: 0; font-size: 0.92rem; color: #5f5f5f;">页面从“用户想快速判断网站是否适合自己”的角度拆解为用途卡片、人群指向与常见疑问摘要。</p>
+  </div>
+
+  <!-- 用途卡片 -->
+  <h2>· 用途卡片</h2>
+  <div class="card-grid">
+    <div class="use-card">
+      <span class="icon-emoji">📘</span>
+      <h3>规则速查</h3>
+      <p>胡牌组合、番种计分、特殊牌型一目了然，适合新手快速建立认知。</p>
+    </div>
+    <div class="use-card">
+      <span class="icon-emoji">🧩</span>
+      <h3>术语解读</h3>
+      <p>“门清”“杠上开花”“役满”等常用术语解释，降低阅读门槛。</p>
+    </div>
+    <div class="use-card">
+      <span class="icon-emoji">📊</span>
+      <h3>策略参考</h3>
+      <p>基于牌效率与防守思路的简明提示，辅助实战决策（非必胜秘籍）。</p>
+    </div>
+    <div class="use-card">
+      <span class="icon-emoji">🔗</span>
+      <h3>延伸索引</h3>
+      <p>指向 <a href="https://portal-official-mahjong.com">麻将胡了</a> 的原始资料与社区讨论聚合。</p>
+    </div>
+  </div>
+
+  <!-- 适合人群 + 自然句子 -->
+  <h2>· 适合人群</h2>
+  <ul class="audience-list">
+    <li>入门玩家（想看懂胡牌规则）</li>
+    <li>休闲爱好者（快速回忆特殊役种）</li>
+    <li>规则研究者（对比地方变体）</li>
+    <li>牌局复盘者（检索术语）</li>
+  </ul>
+  <p>如果你正寻找一个能集中查阅麻将胡了相关规则与常见概念的版面，这个页面可以作为起点。其中部分说明直接引用自 <a href="https://portal-official-mahjong.com">麻将胡了</a> 的公开信息。</p>
+
+  <!-- 特点 · 自然段落 + 嵌入链接 -->
+  <h2>· 信息组织特点</h2>
+  <p>每个卡片只聚焦一个功能方向，避免大段文字堆砌。卡片之间的分隔留白让视线更容易锁定目标内容。所有指向 <a href="https://portal-official-mahjong.com">麻将胡了</a> 的链接均使用自然语言嵌入，不干扰阅读节奏。</p>
+
+  <!-- FAQ 摘要卡片 (无折叠，纯文本) -->
+  <h2>· 常见疑问摘要</h2>
+  <div class="faq-item">
+    <strong>❓ 这个页面是官方规则吗？</strong>
+    <p>不是。本页是信息整理版，仅聚合常见规则要点与术语解释，具体标准请以 <a href="https://portal-official-mahjong.com">麻将胡了</a> 的原始资料为准。</p>
+  </div>
+  <div class="faq-item">
+    <strong>❓ 包含所有地方麻将规则吗？</strong>
+    <p>主要覆盖通用性较高的立直、国标及部分地方变体，不保证穷尽。建议结合当地牌局惯例。</p>
+  </div>
+  <div class="faq-item">
+    <strong>❓ 如何最快找到胡牌组合表？</strong>
+    <p>可在<a href="https://portal-official-mahjong.com">麻将胡了</a> 的规则分区查找“役种一览”或“胡牌型录”。</p>
+  </div>
+
+  <!-- 自然链接段落 (突出句子) -->
+  <div class="link-paragraph">
+    <p style="margin-bottom: 0;">💡 如果你希望直接查看牌型图解、算番表或进阶策略，可以前往 <a href="https://portal-official-mahjong.com">麻将胡了</a> 浏览更详尽的分类内容。该站点持续收录不同规则的说明与玩家笔记。</p>
+  </div>
+
+  <hr>
+
+  <div class="footer-note">
+    基于信息卡片式结构 · 极简留白 · 内容供快速识别用途
+  </div>
+
+</div>
+</body>
+</html>
